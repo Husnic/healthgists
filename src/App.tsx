@@ -66,8 +66,7 @@ function App() {
 
           <p className="subtext">
             Evidence-based health articles, wellness tips, and medical news,
-            curated by professionals and delivered to you. Be the first to know
-            when we launch.
+            curated by professionals and delivered to you.
           </p>
 
           {/* Email signup */}
@@ -93,6 +92,11 @@ function App() {
             </div>
           ) : (
             <form className="signup-form" onSubmit={handleSubmit} noValidate>
+              <p className="subtext subtext-sm">
+                Be the first to know when we{" "}
+                <span className="accent">launch</span>.
+              </p>
+
               <div className="input-wrap">
                 <input
                   type="email"
