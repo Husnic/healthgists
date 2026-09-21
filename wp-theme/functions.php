@@ -38,6 +38,7 @@ function hg_setup() {
 	add_image_size( 'hg-card', 800, 500, true );
 	add_image_size( 'hg-featured', 900, 675, true );
 	add_image_size( 'hg-banner', 1600, 800, true );
+	add_image_size( 'hg-og', 1200, 630, true );
 }
 add_action( 'after_setup_theme', 'hg_setup' );
 
@@ -125,3 +126,4 @@ require get_template_directory() . '/inc/icons.php';
 require get_template_directory() . '/inc/category-meta.php';
 require get_template_directory() . '/inc/contact-handler.php';
 require get_template_directory() . '/inc/blocks.php';
+require get_template_directory() . '/inc/seo.php';

@@ -12,10 +12,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 
 have_posts() && the_post();
+
+hg_page_hero( array(
+	'eyebrow'  => __( 'About', 'healthgists' ),
+	'subtitle' => has_excerpt() ? get_the_excerpt() : '',
+) );
 ?>
 
-<div class="entry-content">
-	<?php the_content(); ?>
+<div class="container-xw py-16 md:py-24">
+	<div class="entry-content">
+		<?php the_content(); ?>
+	</div>
 </div>
 
 <?php get_template_part( 'template-parts/newsletter' ); ?>

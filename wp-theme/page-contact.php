@@ -13,16 +13,17 @@ get_header();
 $sent = isset( $_GET['sent'] ) ? sanitize_text_field( wp_unslash( $_GET['sent'] ) ) : '';
 
 have_posts() && the_post();
+
+hg_page_hero( array(
+	'eyebrow'  => __( 'Contact', 'healthgists' ),
+	'subtitle' => has_excerpt() ? get_the_excerpt() : '',
+) );
 ?>
 
 <section class="py-16 md:py-24">
 	<div class="container-xw grid grid-cols-1 gap-12 md:grid-cols-2">
 		<div>
-			<h1 class="text-3xl font-extrabold text-ink md:text-4xl"><?php the_title(); ?></h1>
-			<?php if ( get_the_excerpt() ) : ?>
-				<p class="mt-4 max-w-md text-sm leading-relaxed text-ink/60"><?php echo esc_html( get_the_excerpt() ); ?></p>
-			<?php endif; ?>
-			<div class="mt-8 space-y-5 text-sm">
+			<div class="mt-0 space-y-5 text-sm">
 				<div class="flex items-center gap-3">
 					<div class="flex h-10 w-10 items-center justify-center rounded-full bg-green/10 text-green">
 						<svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5.5C4 4.67 4.67 4 5.5 4h13c.83 0 1.5.67 1.5 1.5v13c0 .83-.67 1.5-1.5 1.5h-13A1.5 1.5 0 0 1 4 18.5v-13Z"/><path d="m4.5 6 7.5 6 7.5-6"/></svg>

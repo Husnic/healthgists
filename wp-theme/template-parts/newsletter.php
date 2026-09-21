@@ -19,8 +19,10 @@ $hg_dark    = 'dark' === $hg_variant;
 			<form data-newsletter-form class="mt-6 flex flex-col gap-3 sm:flex-row">
 				<input type="email" required placeholder="<?php esc_attr_e( 'Enter your email address', 'healthgists' ); ?>" class="w-full rounded-full border border-ink/15 bg-white px-5 py-3 text-sm text-ink outline-none focus:border-blue" />
 				<button type="submit" class="inline-flex items-center justify-center whitespace-nowrap rounded-full bg-green px-6 py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"><?php esc_html_e( 'Subscribe', 'healthgists' ); ?></button>
+				<!-- Inside the form deliberately — main.js does form.querySelector()
+				     to find this, which only searches descendants. -->
+				<p data-newsletter-status class="hidden w-full text-sm sm:mt-3"></p>
 			</form>
-			<p data-newsletter-status class="mt-3 hidden text-sm"></p>
 		</div>
 	</div>
 </section>

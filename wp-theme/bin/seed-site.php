@@ -386,6 +386,36 @@ foreach ( $pages_to_create as $slug => $title ) {
 }
 
 /* ------------------------------------------------------------------ *
+ * 3b. Featured images for About/Contact — the page-hero banner at the
+ *     top of page.php/page-contact.php falls back to a plain dark band
+ *     without one.
+ * ------------------------------------------------------------------ */
+
+$page_hero_images = array(
+	'about'   => 'pills-photo.jpg',
+	'contact' => 'checkup-photo.jpg',
+);
+foreach ( $page_hero_images as $slug => $filename ) {
+	if ( empty( $page_ids[ $slug ] ) || has_post_thumbnail( $page_ids[ $slug ] ) ) {
+		continue;
+	}
+	list( $hero_img_id ) = hg_seed_get_or_import_image( $filename, $theme_dir );
+	if ( $hero_img_id ) {
+		set_post_thumbnail( $page_ids[ $slug ], $hero_img_id );
+	}
+}
+
+if ( ! empty( $page_ids['contact'] ) ) {
+	$hg_contact_post = get_post( $page_ids['contact'] );
+	if ( $hg_contact_post && ! $hg_contact_post->post_excerpt ) {
+		wp_update_post( array(
+			'ID'           => $page_ids['contact'],
+			'post_excerpt' => "Story tip, correction, partnership enquiry, or just feedback — we read everything that comes through.",
+		) );
+	}
+}
+
+/* ------------------------------------------------------------------ *
  * 4. Reading settings: Home = front page, Blog = posts page.
  * ------------------------------------------------------------------ */
 

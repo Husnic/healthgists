@@ -188,3 +188,18 @@ function hg_render_category_card( $term ) {
 	</a>
 	<?php
 }
+
+/**
+ * Photo banner hero for interior pages — see template-parts/page-hero.php.
+ * Falls back to the current post's featured image if no 'image' arg given.
+ */
+function hg_page_hero( $args = array() ) {
+	$defaults = array(
+		'eyebrow'  => '',
+		'title'    => get_the_title(),
+		'subtitle' => '',
+		'image'    => has_post_thumbnail() ? get_the_post_thumbnail_url( get_the_ID(), 'hg-banner' ) : '',
+	);
+	$args = wp_parse_args( $args, $defaults );
+	get_template_part( 'template-parts/page-hero', null, $args );
+}

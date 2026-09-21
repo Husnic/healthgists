@@ -66,6 +66,28 @@ $hg_author_name = get_the_author();
 					<p class="text-xs text-ink/50"><?php esc_html_e( 'Reviewed for accuracy by the Healthgists editorial team.', 'healthgists' ); ?></p>
 				</div>
 			</div>
+
+			<?php
+			$hg_share_url   = rawurlencode( get_permalink() );
+			$hg_share_title = rawurlencode( get_the_title() );
+			$hg_share_links = array(
+				'facebook' => 'https://www.facebook.com/sharer/sharer.php?u=' . $hg_share_url,
+				'x'        => 'https://twitter.com/intent/tweet?url=' . $hg_share_url . '&text=' . $hg_share_title,
+				'whatsapp' => 'https://wa.me/?text=' . $hg_share_title . '%20' . $hg_share_url,
+			);
+			?>
+			<div class="font-sans mt-8 flex items-center gap-3">
+				<span class="text-xs font-semibold uppercase tracking-wide text-ink/40"><?php esc_html_e( 'Share', 'healthgists' ); ?></span>
+				<?php foreach ( $hg_share_links as $hg_platform => $hg_share_url_full ) : ?>
+					<a href="<?php echo esc_url( $hg_share_url_full ); ?>" target="_blank" rel="noreferrer noopener" aria-label="<?php echo esc_attr( sprintf( __( 'Share on %s', 'healthgists' ), ucfirst( $hg_platform ) ) ); ?>" class="flex h-9 w-9 items-center justify-center rounded-full border border-ink/12 text-ink/60 transition-colors hover:border-green hover:text-green">
+						<?php hg_icon( $hg_platform, 'h-4 w-4' ); ?>
+					</a>
+				<?php endforeach; ?>
+				<button type="button" data-copy-link="<?php echo esc_url( get_permalink() ); ?>" aria-label="<?php esc_attr_e( 'Copy link', 'healthgists' ); ?>" class="flex h-9 w-9 items-center justify-center rounded-full border border-ink/12 text-ink/60 transition-colors hover:border-green hover:text-green">
+					<?php hg_icon( 'link', 'h-4 w-4' ); ?>
+				</button>
+				<span data-copy-link-status class="hidden text-xs text-green"><?php esc_html_e( 'Link copied', 'healthgists' ); ?></span>
+			</div>
 		</div>
 	</section>
 </article>

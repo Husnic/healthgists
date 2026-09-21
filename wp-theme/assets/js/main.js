@@ -103,4 +103,22 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  // Copy-link share button on single posts.
+  document.querySelectorAll("[data-copy-link]").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const url = btn.getAttribute("data-copy-link");
+      const status = btn.parentElement.querySelector("[data-copy-link-status]");
+      try {
+        await navigator.clipboard.writeText(url);
+        if (status) {
+          status.classList.remove("hidden");
+          setTimeout(() => status.classList.add("hidden"), 2000);
+        }
+      } catch {
+        // Clipboard API unavailable (non-HTTPS context, older browser) — the
+        // link is still right there in the address bar to copy manually.
+      }
+    });
+  });
 });
