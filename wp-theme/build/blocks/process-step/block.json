@@ -1,0 +1,32 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "healthgists/process-step",
+  "title": "Process Step",
+  "category": "healthgists-blocks",
+  "parent": [
+    "healthgists/process-steps"
+  ],
+  "icon": "editor-ol",
+  "description": "One numbered step inside Process Steps.",
+  "textdomain": "healthgists",
+  "attributes": {
+    "number": {
+      "type": "string",
+      "default": "01"
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "body": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "html": false,
+    "reusable": false
+  },
+  "editorScript": "file:./index.js"
+}

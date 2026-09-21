@@ -1,0 +1,16 @@
+{
+  "name": "healthgists-theme",
+  "private": true,
+  "scripts": {
+    "build:css": "tailwindcss -i ./assets/css/input.css -o ./assets/css/style.build.css --minify",
+    "watch:css": "tailwindcss -i ./assets/css/input.css -o ./assets/css/style.build.css --watch",
+    "build:blocks": "wp-scripts build",
+    "start:blocks": "wp-scripts start",
+    "build": "npm run build:css && npm run build:blocks"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4",
+    "@wordpress/scripts": "^35.0.0",
+    "tailwindcss": "^4"
+  }
+}

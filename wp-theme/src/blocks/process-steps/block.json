@@ -1,0 +1,12 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "healthgists/process-steps",
+	"title": "Healthgists: Process Steps",
+	"category": "healthgists-blocks",
+	"icon": "editor-ol",
+	"description": "Numbered steps — used for About's 'How We Work' editorial process.",
+	"textdomain": "healthgists",
+	"supports": { "html": false },
+	"editorScript": "file:./index.js"
+}

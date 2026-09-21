@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "healthgists/category-card",
+  "title": "Category Card",
+  "category": "healthgists-blocks",
+  "parent": [
+    "healthgists/category-showcase"
+  ],
+  "icon": "category",
+  "description": "One category's photo card — pick which category; its cover image and description (set on the category itself) are used automatically.",
+  "textdomain": "healthgists",
+  "attributes": {
+    "termId": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "supports": {
+    "html": false,
+    "reusable": false
+  },
+  "editorScript": "file:./index.js"
+}

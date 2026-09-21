@@ -1,0 +1,40 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "healthgists/category-showcase",
+  "title": "Healthgists: Category Showcase",
+  "category": "healthgists-blocks",
+  "icon": "grid-view",
+  "description": "A row of photo cards, one per topic — used on Home and About's 'Browse by Topic' sections.",
+  "textdomain": "healthgists",
+  "attributes": {
+    "columns": {
+      "type": "number",
+      "default": 4
+    },
+    "eyebrow": {
+      "type": "string",
+      "default": ""
+    },
+    "heading": {
+      "type": "string",
+      "default": ""
+    },
+    "variant": {
+      "type": "string",
+      "default": "light"
+    },
+    "linkText": {
+      "type": "string",
+      "default": ""
+    },
+    "linkUrl": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "html": false
+  },
+  "editorScript": "file:./index.js"
+}

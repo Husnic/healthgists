@@ -1,0 +1,36 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "healthgists/value-prop-item",
+  "title": "Value Prop Item",
+  "category": "healthgists-blocks",
+  "parent": [
+    "healthgists/value-prop-grid"
+  ],
+  "icon": "star-filled",
+  "description": "One icon + heading + text card inside a Value Prop Grid.",
+  "textdomain": "healthgists",
+  "attributes": {
+    "icon": {
+      "type": "string",
+      "default": "spark"
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "body": {
+      "type": "string",
+      "default": ""
+    },
+    "tint": {
+      "type": "string",
+      "default": "green"
+    }
+  },
+  "supports": {
+    "html": false,
+    "reusable": false
+  },
+  "editorScript": "file:./index.js"
+}

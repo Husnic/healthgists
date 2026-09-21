@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "healthgists/value-prop-grid",
+  "title": "Healthgists: Value Prop Grid",
+  "category": "healthgists-blocks",
+  "icon": "list-view",
+  "description": "A row of icon + title + text cards — 'why trust us' style, used on Home and About.",
+  "textdomain": "healthgists",
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": ""
+    },
+    "heading": {
+      "type": "string",
+      "default": ""
+    },
+    "variant": {
+      "type": "string",
+      "default": "light"
+    }
+  },
+  "supports": {
+    "html": false
+  },
+  "editorScript": "file:./index.js"
+}

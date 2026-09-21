@@ -1,0 +1,146 @@
+@import "tailwindcss";
+@source "../../**/*.php";
+
+@theme {
+  --color-blue: #1e88e5;
+  --color-blue-deep: #12578e;
+  --color-green: #2e7d32;
+  --color-gold: #f9a825;
+  --color-ink: #101b23;
+  --color-paper: #f7f8fa;
+  --color-paper-warm: #f4f1ea;
+  --color-lavender: #eef4fb;
+
+  /* Montserrat for headings, Commissioner everywhere else — a calmer,
+     quieter read than Inter/Roboto for body copy, nav, buttons, and
+     everything in between. */
+  --font-display: "Montserrat", system-ui, sans-serif;
+  --font-sans: "Commissioner", system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-ink);
+    background-color: var(--color-paper);
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+  }
+}
+
+/* Full-bleed breakout inside a max-width, padded wrapper — position:relative
+   left/right:50% + negative vw margins works regardless of ancestor width,
+   unlike a plain calc(50% - 50vw) margin trick. */
+.bleed {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+/* Value Prop Grid, dark variant: each item's title/body are hardcoded
+   text-ink for the (more common) light background — this overrides them
+   to readable white/70 when the grid's parent section is bg-ink. Higher
+   specificity than the items' own .text-ink class wins without !important. */
+.value-prop-dark h3 {
+  color: #ffffff;
+}
+.value-prop-dark p {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.container-xw {
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Hero slider: the first slide shows before JS initializes; main.js takes
+   over the crossfade from there. */
+[data-hero-slides] [data-hero-slide]:first-child {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* Article body copy — used on single.php. */
+.article-body {
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--color-ink);
+}
+.article-body > * + * {
+  margin-top: 1.5em;
+}
+.article-body h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 2.2em;
+}
+.article-body h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-top: 1.8em;
+}
+.article-body blockquote {
+  border-left: 3px solid var(--color-gold);
+  padding-left: 1.25rem;
+  font-style: italic;
+  color: #3a4750;
+}
+.article-body a {
+  color: var(--color-blue);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.article-body ul, .article-body ol {
+  padding-left: 1.5rem;
+}
+.article-body ul {
+  list-style: disc;
+}
+.article-body ol {
+  list-style: decimal;
+}
+.article-body table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+.article-body th, .article-body td {
+  border: 1px solid color-mix(in srgb, var(--color-ink) 12%, transparent);
+  padding: 0.6rem 0.9rem;
+  text-align: left;
+}
+.article-body th {
+  background: var(--color-paper-warm);
+  font-weight: 700;
+}
+
+/* Scopes the theme's card/button styling to the editable content area, the
+   same way phf-ogun scopes its custom-block CSS under .entry-content — so
+   core blocks (buttons, quote, table) used inside page content also read
+   on-brand without needing a special block pattern for every page. */
+.entry-content .wp-block-button__link {
+  border-radius: 9999px;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  background-color: var(--color-green);
+  color: #ffffff;
+}
+.entry-content .wp-block-quote {
+  border-left: 3px solid var(--color-gold);
+  padding-left: 1.25rem;
+  font-style: italic;
+  color: #3a4750;
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "healthgists/hero-slider",
+  "title": "Healthgists: Hero Slider",
+  "category": "healthgists-blocks",
+  "icon": "images-alt2",
+  "description": "The rotating photo hero at the top of Home — add slides freely; each can link to a post or be a manual brand slide.",
+  "textdomain": "healthgists",
+  "supports": {
+    "html": false
+  },
+  "editorScript": "file:./index.js"
+}

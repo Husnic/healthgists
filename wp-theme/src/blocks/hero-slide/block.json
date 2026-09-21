@@ -1,0 +1,21 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "healthgists/hero-slide",
+	"title": "Hero Slide",
+	"category": "healthgists-blocks",
+	"parent": ["healthgists/hero-slider"],
+	"icon": "cover-image",
+	"description": "One slide: link it to an existing post (auto-fills photo/title/excerpt), or fill in a manual brand slide.",
+	"textdomain": "healthgists",
+	"attributes": {
+		"linkedPostId": { "type": "number", "default": 0 },
+		"eyebrow": { "type": "string", "default": "" },
+		"title": { "type": "string", "default": "" },
+		"subtitle": { "type": "string", "default": "" },
+		"imageId": { "type": "number", "default": 0 },
+		"imageUrl": { "type": "string", "default": "" }
+	},
+	"supports": { "html": false, "reusable": false },
+	"editorScript": "file:./index.js"
+}
